@@ -7,9 +7,11 @@ function MovieDetails () {
     return (
         <>
             <h1>Movies Details</h1>
-            <p>{selectedMovie.title}</p>
-            <p>{selectedMovie.description}</p>
-            <img src={selectedMovie.poster} />
+            {selectedMovie[0]} && (
+            <p>{selectedMovie[0]?.title}</p>
+            <p>{selectedMovie[0]?.description}</p>
+            <img src={selectedMovie[0]?.poster} alt={selectedMovie[0]?.title}/>
+            )
         </>
     )
 }

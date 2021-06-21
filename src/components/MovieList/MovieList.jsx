@@ -18,7 +18,8 @@ function MovieList() {
         console.log('clicked on movie:', movie)
         // send movie through function into reducer
         dispatch({type: 'GET_DETAIL', payload: movie})
-
+        // grab genres for movies
+        dispatch({type: 'FETCH_DETAILS', payload: movie})
         history.push('/details')
     }
 
