@@ -11,10 +11,15 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
+/*******SAGAS*******/
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FECTH_DETAILS', fetchDetails)
 }
+
+// function* fetchDetails
 
 function* fetchAllMovies() {
     // get all movies from the DB
@@ -41,6 +46,8 @@ const movies = (state = [], action) => {
             return state;
     }
 }
+
+/*******REDUCERS*******/
 
 // Used to store selected movie's details
 const selectedMovie = (state ={}, action) => {
