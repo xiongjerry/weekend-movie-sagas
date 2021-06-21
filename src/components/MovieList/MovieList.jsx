@@ -14,7 +14,11 @@ function MovieList() {
     }, []);
 
     // goes to detail page on click
-    const handleDetail = () => {
+    const handleDetails = (movie) => {
+        console.log('clicked on movie:', movie)
+        // send movie through function into reducer
+        dispatch({type: 'GET_DETAIL', payload: movie})
+
         history.push('/details')
     }
 
@@ -24,7 +28,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div key={movie.id} onClick={handleDetail}>
+                        <div key={movie.id} onClick={ () => {handleDetails(movie)} }>
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
                         </div>
